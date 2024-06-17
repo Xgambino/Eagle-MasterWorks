@@ -3,6 +3,8 @@
 
 #### Date, 2024/06/17
 
+#### By Denis Mugambi Muthuri
+
 ### Overview 
 For this phase 3 project, you will create a CLI and ORM application in Python. The major learning goals of project include;
 
