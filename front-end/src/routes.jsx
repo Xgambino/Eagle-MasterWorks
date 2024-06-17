@@ -1,5 +1,4 @@
 import React from "react";
-import About from "./pages/About";
 import Catalogue from "./pages/Catalogue";
 import AddToCatalogue from "./pages/AddToCatalogue";
 import { createRoot } from "react-dom/client";
@@ -10,8 +9,8 @@ import {
   Link,
 } from "react-router-dom";
 import ContactUs from "./pages/ContactUs";
-
 import App from "./App";
+import News from "./pages/News";
 
 
 
@@ -22,8 +21,8 @@ export  const router = createBrowserRouter([
     element: <App/>,
   },
   {
-    path: "/about",
-    element: <About/>,
+    path: "/news",
+    element: <News/>,
   },
   {
     path: "/catalogue",

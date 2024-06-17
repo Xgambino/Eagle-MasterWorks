@@ -17,10 +17,11 @@ const schema = z.object({
   image: z.string({
     required_error: "Image is required",
   }).min(1, { message: "Image is required" }).url({ message: "Enter a valid image URL" }),
-  date_published: z.string({
-    required_error: "Date Published is required",
-  }),
-});
+  year_of_manufacture: z.string({
+    required_error: "Year Of Manufacture is required",
+  }).min(1, { message: "Year Of Manufacture is required" }),
+  price: z.string().min(1, {message:'Price is required'})
+  });
 
 const AddToCatalogue = () => {
   const [models, setModels] = useState([]);
@@ -63,12 +64,19 @@ const AddToCatalogue = () => {
       owner: "",
       model_id: "",
       date_published: "",
+      price:""
     },
   });
 
-  const onSubmit = (values) => {
-    console.log(values);
-    // Handle form submission logic here
+  const onSubmit = async (values) => {
+    fetch(`${BASE_URL}/catalogue`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({...values, price: Number(values.price),model_id:Number(values.model_id)}),
+    }).then((res)=> res.json()).then(data=> console.log(data)).catch((err)=> console.log(er));
   };
 
   return (
@@ -160,8 +168,30 @@ const AddToCatalogue = () => {
               }}
               render={({ field, fieldState }) => (
                 <Form.Group className="mb-3 form-group">
-                  <Form.Label className="form-label">Date published</Form.Label>
-                  <Form.Control type="datetime-local" placeholder="Date published" className="form-control" {...field} />
+                  <Form.Label className="form-label">Year of Manufacture</Form.Label>
+                  <Form.Control type="datetime-local" placeholder="Year of Manufacture" className="form-control" {...field} />
+                  {fieldState.invalid && (
+                    <Form.Text className="text-danger form-text">
+                      {fieldState.error.message}
+                    </Form.Text>
+                  )}
+                </Form.Group>
+              )}
+            />
+            <Controller
+              name="Price"
+              control={control}
+              rules={{ 
+                required: 'Price is required',
+                minLength: {
+                  value: 1,
+                  message: 'Price is required',
+                }
+              }}
+              render={({ field, fieldState }) => (
+                <Form.Group className="mb-3 form-group" controlId="formBasicEmail">
+                  <Form.Label className="form-label">Price</Form.Label>
+                  <Form.Control type="number" placeholder="In-put Price" className="form-control" {...field} />
                   {fieldState.invalid && (
                     <Form.Text className="text-danger form-text">
                       {fieldState.error.message}
@@ -179,8 +209,8 @@ const AddToCatalogue = () => {
               feedbackTooltip
               className="form-check-label"
             />
-            <Button variant="primary btn-primary" type="submit">
-              Submit
+            <Button variant="primary btn-primary" type="submit" disabled={formState.isSubmitting}>
+              {formState.isSubmitting ? 'Saving...':'Submit'}
             </Button>
           </Form>
         </div>
