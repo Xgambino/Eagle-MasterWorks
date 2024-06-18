@@ -13,16 +13,19 @@ const Navbar = () => {
           <NavLink to="/catalogue" className={({ isActive }) => isActive ? "active" : ""}>Catalogue</NavLink>
         </li>
         <li className="nav-item">
+          <NavLink to="/Offers" className={({ isActive }) => isActive ? "active" : ""}>Offers</NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink to="/news" className={({ isActive }) => isActive ? "active" : ""}>News</NavLink>
         </li>
         <li className="nav-contact">
           <NavLink to="/contact-us" className={({ isActive }) => isActive ? "active" : ""}>Contact Us</NavLink>
         </li>
-        <Nav.Item>
+        {/* <Nav.Item>
 							<NavLink to="/add-to-catalogue" className="">
 								<Button>Add catalogue</Button>
 							</NavLink>
-						</Nav.Item>
+						</Nav.Item> */}
       </ul>
     </div>
   );

@@ -184,7 +184,7 @@ const Catalogue = () => {
           ))}
         </ul>
 
-        <h2
+        {/* <h2
           style={{
             padding: "20px",
           }}
@@ -375,7 +375,7 @@ const Catalogue = () => {
           >
             Save
           </button>
-        </form>
+        </form> */}
       </div>
     </div>
   );

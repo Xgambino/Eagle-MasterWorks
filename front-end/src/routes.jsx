@@ -11,6 +11,7 @@ import {
 import ContactUs from "./pages/ContactUs";
 import App from "./App";
 import News from "./pages/News";
+import MotorcycleOffer from "./pages/MotorcycleOffer";
 
 
 
@@ -30,8 +31,8 @@ export  const router = createBrowserRouter([
   },
 
   {
-    path: "/add-to-catalogue",
-    element: <AddToCatalogue/>,
+    path: "/offers",
+    element: <MotorcycleOffer/>,
   },
   {
     path: "/contact-us",
