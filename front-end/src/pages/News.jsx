@@ -1,74 +1,47 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import './News.css';
 
-const News = () => {
-  const { id } = useParams();
-  const [news, setNews] = useState(null);
-  const navigate = useNavigate();
+function News() {
+  const [motorcycle_events, setMotorcycleEvents] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:8000/motorcycle_news/${id}`)
-      .then((response) => response.json())
-      .then((data) => setNews(data))
-      .catch((error) => console.error("Error fetching news details:", error));
-  }, [id]);
+    fetch('http://localhost:8000/motorcycle_events')
+      .then(response => response.json())
+      .then(data => setMotorcycleEvents(data));
+  }, []);
 
-  if (!news) {
-    return <div>Loading...</div>;
-  }
+  const handleSearch = () => {
+    fetch(`http://localhost:8000/motorcycle_events`)
+      .then(response => response.json())
+      .then(data => setMotorcycleEvents(data));
+  };
 
   return (
-    <Container className="py-4 text-white">
-      <Button onClick={() => navigate(-1)} className="mb-3">
-        Back
-      </Button>
-      <Row>
-        <Col md={6}>
-          <div
-            className="article-details"
-            style={{ padding: "20px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}
-          >
-            <img
-              src={news.image_url}
-              alt={news.title}
-              className="img-fluid rounded"
-              style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" }}
-            />
-          </div>
-        </Col>
-        <Col md={6}>
-          <div
-            className="article-details"
-            style={{ padding: "20px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}
-          >
-            <h2
-              className="mb-4"
-              style={{ fontWeight: "bold", fontSize: "2.5rem" }}
-            >
-              <u>{news.title}</u>
-            </h2>
-            <p
-              className="description mb-4"
-              style={{
-                fontWeight: "bold",
-                fontSize: "1.6rem",
-                textDecoration: "underline",
-              }}
-            >
-              {news.description}
-            </p>
-            <div
-              className="content"
-              style={{ fontSize: "1.5rem", fontWeight: "bold" }}
-            >
-              <p>{news.content}</p>
-            </div>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <div className="news-container">
+      <h1 className="news-title">Motorcycle Events</h1>
+      <div className="search-container">
+        <input
+          className="search-input"
+          type="text"
+          value={searchText}
+          onChange={e => setSearchText(e.target.value)}
+          placeholder="Search for motorcycle events"
+        />
+        <button className="search-button" onClick={handleSearch}>Search</button>
+      </div>
+      <ul className="event-list">
+        {motorcycle_events.map(event => (
+          <li key={event.id} className="event-item">
+            <img className="event-image" src={event.image_url} alt={event.title} />
+            <h2 className="event-title">{event.title}</h2>
+            <p className="event-date">{event.event_date}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-};
+}
 
 export default News;
