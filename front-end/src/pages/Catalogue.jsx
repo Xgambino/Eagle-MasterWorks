@@ -179,6 +179,7 @@ const Catalogue = () => {
                 }}
               >
                 Release Date: {motorcycle.release_date}
+                
               </p>
               <img 
                 src={motorcycle.image_url} 
@@ -189,7 +190,7 @@ const Catalogue = () => {
                   maxWidth: "300px",
                   marginTop: "10px",
                 }}
-                
+
               />
             </li>
           ))}
