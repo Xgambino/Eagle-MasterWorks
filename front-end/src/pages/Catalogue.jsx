@@ -189,6 +189,7 @@ const Catalogue = () => {
                   maxWidth: "300px",
                   marginTop: "10px",
                 }}
+                
               />
             </li>
           ))}
