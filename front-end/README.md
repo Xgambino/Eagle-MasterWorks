@@ -5,6 +5,9 @@
 
 #### By Denis Mugambi Muthuri
 
+## WEBSITE VIDEO LINK
+https://photos.app.goo.gl/SUseDwWFLbv65QjG6
+
 ### Introduction
 My Motorcycle Store is a full-stack web application designed to provide motorcycle enthusiasts with an easy and convenient shopping experience. With a user-friendly interface and seamless navigation,aspiring riders can explore a wide range of motorcycle, their specifications, an image of the bike they would want to purchase and finally add the item to their cart.
 
@@ -44,29 +47,29 @@ Visual Studio Code (or any other code editor)
 Google Chrome (or any other web browser)
 
 ### Installation and Set-Up
-1. Clone the repository using `git clone git@github.com:Xgambino/Eagle-MasterWorks.git`
+1. Clone the repository using git clone git@github.com:Xgambino/Eagle-MasterWorks.git
 
 ## Live Link
-`https://github.com/Xgambino/Eagle-MasterWorks.git`
+https://github.com/Xgambino/Eagle-MasterWorks.git
 
 ### Front-End live link
-`https://github.com/Xgambino/Eagle-MasterWorks.git`
+https://github.com/Xgambino/Eagle-MasterWorks.git
 
 ### Front-End SSH Link
-`git@github.com:Xgambino/Eagle-MasterWorks.git`
+git@github.com:Xgambino/Eagle-MasterWorks.git
 
 ### Back-End live link
-`https://github.com/Xgambino/back-end.git`
+https://github.com/Xgambino/back-end.git
 
 ### Back-End git link
-`git@github.com:Xgambino/back-end.git`
+git@github.com:Xgambino/back-end.git
 
 ### Website Video Link
 
 ### Component details
-1. Endpoint:`http://127.0.0.1:8000/catalogues` Description: Fetches the list of all the bikes
-2. Endpoint:`http://localhost:8000/motorcycle_offers` Description: Fetches the list of all bikes that are on offer
-3. Endpoint:`http://localhost:8000/motorcycle_events` Description: Fetches the list of all upcoming events
+1. Endpoint:http://127.0.0.1:8000/catalogues Description: Fetches the list of all the bikes
+2. Endpoint:http://localhost:8000/motorcycle_offers Description: Fetches the list of all bikes that are on offer
+3. Endpoint:http://localhost:8000/motorcycle_events Description: Fetches the list of all upcoming events
 
 ### Known Bugs
 There are no known bugs at the moment
